@@ -29,7 +29,7 @@ function App() {
       <main>
         <Routes>
           <Route index element={<Login />} />
-          <Route path="menu">
+          <Route path="/menu">
             <Route index element={<TodoPlatillos />}/>
           </Route>
         </Routes>

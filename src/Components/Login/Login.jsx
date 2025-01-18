@@ -3,7 +3,7 @@ import sushiPortada from "../../assets/logo.jpg";
 import React, { useRef, useState } from "react";
 import PerfilLogo from "../Platillos/PerfilLogo";
 import InputLogin from "../UI/InputLogin";
-import { Link, NavLink } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const Usuario = [
   {
@@ -24,6 +24,11 @@ const Login = (props) => {
 
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
+  const navigate = useNavigate();
+
+  const navigateUrl = () => {
+    navigate('/menu');
+  }
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -46,12 +51,11 @@ const Login = (props) => {
 
     const users = Usuario.map((usuario) => {
       if (username === usuario.username && password === usuario.password ){
-        window.location.href='/menu';
-      } 
-      else
-      {
-        setUserloggin(true);
-        setUserlogginMsg("Usuario o contraseña son incorrectas");
+          navigateUrl();
+      }
+      else{
+          setUserloggin(true);
+          setUserlogginMsg("Usuario o contraseña son incorrectas");
       }
     });
   };
