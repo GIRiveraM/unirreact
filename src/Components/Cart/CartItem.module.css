@@ -13,7 +13,7 @@
 }
 
 .summary {
-  width: 10rem;
+  width: 15rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +30,10 @@
   padding: 0.25rem 0.75rem;
   border-radius: 6px;
   color: #363636;
+}
+
+.quant {
+  font-weight: bold;
 }
 
 .actions {
@@ -60,6 +64,6 @@
 
 .cart-item button:hover,
 .cart-item button:active {
-  background-color: #eeff00;
+  background-color: #ff4800;
   color: white;
 }

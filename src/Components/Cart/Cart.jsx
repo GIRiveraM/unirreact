@@ -3,6 +3,7 @@ import CartCss from "./Cart.module.css";
 import Modal from "../UI/Modal";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
+import { current } from "@reduxjs/toolkit";
 
 const Cart = (props) => {
   const items = useSelector((state) => state.cart.items);
@@ -22,13 +23,14 @@ const Cart = (props) => {
       ))}
     </ul>
   );
+
   return (
     <Modal onClose={props.onClose}>
       <>
         {CartItems}
         <div className={CartCss.total}>
-          <span>C. Total</span>
-          <span>{total.toFixed(2)}</span>
+          <span>Cantidad total a pagar:</span>
+          <span>{ new Intl.NumberFormat('es-MX', {style:'currency', currency:'MXN'}).format(total) }</span>
         </div>
         <div className={CartCss.actions}>
           <button className={CartCss["button--alt"]} onClick={props.onClose}>

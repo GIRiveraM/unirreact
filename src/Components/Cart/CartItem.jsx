@@ -26,8 +26,8 @@ const CartItem = (props) => {
         <h2> {name} </h2>
         <div className={CartItemCss.summary}>
           <span className={CartItemCss.price}>${price.toFixed(2)}</span>
-          <span>X {quant}</span>
-          <span className={CartItemCss.amount}>${totalItem.toFixed(2)}</span>
+          <span className={CartItemCss.quant }> X {quant}</span>
+          <span className={CartItemCss.amount}>{new Intl.NumberFormat('es-MX', {style:'currency', currency:'MXN'}).format(totalItem)}</span>
         </div>
       </div>
       <div className={CartItemCss.actions}>
