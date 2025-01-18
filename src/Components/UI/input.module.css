@@ -1,0 +1,36 @@
+.input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.input input {
+  width: 3rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+
+.inputLogin label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.inputLogin input {
+  width: 16rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+  font-size: 10px;
+}

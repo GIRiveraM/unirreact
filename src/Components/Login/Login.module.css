@@ -1,0 +1,83 @@
+.main {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: #021724;
+}
+.sub-main {
+  display: flex;
+  justify-content: center;
+  height: 550px;
+  width: 35%;
+  box-shadow: 5px 12px 16px 5px rgb(150, 177, 17);
+  padding-top: 30px;
+  border-radius: 60px;
+  background-color: white;
+}
+.imgs {
+  padding-top: 20px;
+  justify-content: center;
+  display: flex;
+}
+.container-image {
+  background-color: rgb(223, 221, 221);
+  border-radius: 150px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 115px;
+  width: 115px;
+}
+.profile {
+  height: 100px;
+  width: 100px;
+  border-radius: 130px;
+}
+
+.email {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  padding: 14px 0 0 25px;
+}
+
+.name {
+  padding-left: 70px;
+  font-size: 20px;
+}
+.second-input {
+  padding-top: 20px;
+}
+
+.button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #ff4d00;
+  color: white;
+  padding: 0.75rem 3rem;
+
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.button:hover,
+.button:active {
+  background-color: #000000;
+}
+
+.login-button {
+  padding-top: 25px;
+}
+
+.link {
+  font-size: 25px;
+  font-weight: 400;
+}
+a {
+  color: blue;
+}
