@@ -51,6 +51,7 @@ const Login = (props) => {
 
     const users = Usuario.map((usuario) => {
       if (username === usuario.username && password === usuario.password ){
+        console.log('entro');
           navigateUrl();
       }
       else{
