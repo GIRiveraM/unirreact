@@ -29,7 +29,6 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const navigateUrl = () => {
-    ShowBtns(true);
     navigate('/menu');
   }
 
