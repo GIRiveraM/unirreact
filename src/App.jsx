@@ -3,8 +3,8 @@ import "./App.css";
 import Cart from "./Components/Cart/Cart";
 import Header from "./Components/Layout/Header";
 import TodoPlatillos from "./Components/Platillos/TodosPlatillos";
-import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Components/Login/Login";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -19,16 +19,16 @@ function App() {
   };
 
   const userLogin = () => {
-    setUser()
-  }
+    setUser();
+  };
 
   return (
     <>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} onShowLogout ={ user } />
+      <Header onShowCart={showCartHandler} onShowLogout={user} />
       <main>
         <Routes>
-          <Route path="/login" element={<Login  />} />  
+          <Route path="/login" element={<Login />} />
           <Route path="/menu" element={<TodoPlatillos />} />
           <Route path="/*" element={<Navigate to="/menu" />} />
         </Routes>
