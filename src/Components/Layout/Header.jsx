@@ -20,7 +20,7 @@ const Header = (props) => {
           Cerrar sesión
         </NavLink> : ''
         }
-        {!props.onShowLogout > 1 ? <HeaderCartButton onClick={props.onShowCart} /> :'' }
+        <HeaderCartButton onClick={props.onShowCart} /> 
       </header>
       <div className={HeaderCss["main-image"]}>
         <img src={FoodMexPortada} alt="mexican food logo" />
