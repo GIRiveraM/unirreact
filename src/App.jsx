@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<Login  />} />  
           <Route path="/menu" element={<Navigate to="/menu" />} />
           {/*  <Route path="/menu" element={<TodoPlatillos />} />*/}
-          {/* <Route path="/*" element={<Navigate to="/menu" />} />*/}
+           <Route path="/*" element={<Navigate to="/menu" />} />
         </Routes>
       </main>
     </>
