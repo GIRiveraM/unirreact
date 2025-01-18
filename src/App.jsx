@@ -28,10 +28,15 @@ function App() {
       <Header onShowCart={showCartHandler} onShowLogout={user} />
       <main>
         <Routes>
-          <Route path="login" element={<Login />} />
+          <Route index element={<Login />} />
+          <Route path="/menu" element={<TodoPlatillos />} />
+        </Routes>
+
+       {/*  <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="menu" element={<TodoPlatillos />} />
           <Route path="/*" element={<Navigate to="/menu" />} />
-        </Routes>
+        </Routes> */}
       </main>
     </>
   );

@@ -46,7 +46,7 @@ const Login = (props) => {
 
     const users = Usuario.map((usuario) => {
       if (username === usuario.username && password === usuario.password ){
-        window.location.href='/menu1';
+        window.location.href='/menu';
       } 
       else
       {
