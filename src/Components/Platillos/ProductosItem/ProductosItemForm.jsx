@@ -3,7 +3,6 @@ import ProdItemCss from "./ProductosItem.module.css";
 import Input from "../../UI/Input";
 import { useDispatch } from "react-redux";
 import { increment } from "../../../store/counterSlice";
-import { addItem } from "../../../store/cartSlice";
 
 const ProductosItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);

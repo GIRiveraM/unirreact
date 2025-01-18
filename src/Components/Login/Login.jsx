@@ -5,14 +5,16 @@ import PerfilLogo from "../Platillos/PerfilLogo";
 import InputLogin from "../UI/InputLogin";
 import {  useNavigate } from "react-router-dom";
 
+
 const Usuario = [
   {
     username:'admin@dominio.com',
-    password:'Admin2025'
+    password:'admin123'
   }
 ];
 
 const Login = (props) => {
+
   const [errorUsername, setErrorUsername] = useState(false);
   const [errorMsgUsername, setErrorMsgUsername] = useState(null);
 
@@ -27,6 +29,7 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const navigateUrl = () => {
+    ShowBtns(true);
     navigate('/menu');
   }
 
@@ -51,8 +54,7 @@ const Login = (props) => {
 
     const users = Usuario.map((usuario) => {
       if (username === usuario.username && password === usuario.password ){
-        console.log('entro');
-          navigateUrl();
+        navigateUrl();
       }
       else{
           setUserloggin(true);
