@@ -7,8 +7,8 @@ import { Link, NavLink } from "react-router-dom";
 
 const Usuario = [
   {
-    username:'tazrimg.mx@gmail.com',
-    password:'UNIR2025'
+    username:'admin@dominio.com',
+    password:'Admin2025'
   }
 ];
 
