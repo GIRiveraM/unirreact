@@ -8,7 +8,7 @@ import {  Route, Routes } from "react-router-dom";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
-     
+      
   const showCartHandler = () => {
     setCartIsShown(true);
   };
@@ -16,8 +16,7 @@ function App() {
   const hideCartHandler = () => {
     setCartIsShown(false);
   };
-
-  
+ 
   return (
     <>
       {cartIsShown && <Cart onClose={hideCartHandler} />}

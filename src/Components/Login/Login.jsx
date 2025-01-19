@@ -1,115 +1,76 @@
+import React, { useState } from "react";
+import { useAuth } from "../../context/AuthProvider";
 import LoginCss from "./Login.module.css";
-import sushiPortada from "../../assets/logo.jpg";
-import React, { useRef, useState } from "react";
 import PerfilLogo from "../Platillos/PerfilLogo";
+import logoPortada from "../../assets/logo.jpg";
 import InputLogin from "../UI/InputLogin";
 import {  useNavigate } from "react-router-dom";
 
+const Login = () => {
 
-const Usuario = [
-  {
-    username:'admin@dominio.com',
-    password:'admin123'
-  }
-];
-
-const Login = (props) => {
-
-  const [errorUsername, setErrorUsername] = useState(false);
-  const [errorMsgUsername, setErrorMsgUsername] = useState(null);
-
-  const [errorPassword, setErrorPassword] = useState(false);
-  const [errorMsgPassword, setErrorMsgPassword] = useState(null);
-
-  const [userloggin, setUserloggin] = useState(false);
-  const [userlogginMsg, setUserlogginMsg] = useState(null);
-
-  const usernameInputRef = useRef();
-  const passwordInputRef = useRef();
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const { login } = useAuth();
   const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.email === "admin@dominio.com" && formData.password === "admin123") {
+      login(); // Cambiar el estado global
+      navigateUrl(); // navegamos a la pagina
+    } else {
+      setError("Credenciales incorrectas");
+    }
+  };
 
   const navigateUrl = () => {
     navigate('/menu');
-  }
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const username = usernameInputRef.current.value;
-    const password = passwordInputRef.current.value;
-    const usernameisValid = username.trim() !== "";
-    const passwordisValid = password.trim() !== "";
-    const formIsValid = usernameisValid && passwordisValid;
-    if (!formIsValid) {
-      if (!usernameisValid) {
-        setErrorUsername(true);
-        setErrorMsgUsername("* usuario requerido");
-      }
-      if (!passwordisValid) {
-        setErrorPassword(true);
-        setErrorMsgPassword("* password requerido");
-      }
-      return;
-    }
-
-    const users = Usuario.map((usuario) => {
-      if (username === usuario.username && password === usuario.password ){
-        navigateUrl();
-      }
-      else{
-          setUserloggin(true);
-          setUserlogginMsg("Usuario o contraseña son incorrectas");
-      }
-    });
   };
+
+
 
   return (
     <>
       <PerfilLogo />
       <div className={LoginCss.main}>
         <div className={LoginCss["sub-main"]}>
-          <div>
-            <div className={LoginCss.imgs}>
-              <div className={LoginCss["container-image"]}>
-                <img
-                  src={sushiPortada}
-                  alt="profile"
-                  className={LoginCss.profile}
-                />
+            <div>
+              <div className={LoginCss.imgs}>
+                  <div className={LoginCss["container-image"]}>
+                      <img
+                        src={logoPortada}
+                        alt="profile"
+                        className={LoginCss.profile}
+                      />
+                  </div>
               </div>
+
+              <form onSubmit={handleSubmit}>
+                  <h1>Inicio de sesión</h1>
+                  <InputLogin 
+                    label ="Usuario"
+                    type = "email"
+                    name = "email"
+                    value = { formData.email }
+                    placeholder = "admin@dominio.com"
+                    onChange = { (e) => setFormData({...formData, email: e.target.value })}
+                  />
+                  <div className={LoginCss["second-input"]}>
+                    <InputLogin 
+                      label = "Contraseña"
+                      type = "password"
+                      name = "password"
+                      placeholder = "*****"
+                      value = { formData.password }
+                      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    />
+                  </div>
+                  {error && <p> { error }</p>}
+                  <div className={LoginCss["login-button"]}>
+                    <button className={LoginCss.button} >Iniciar sesión</button>
+                  </div>
+              </form>
             </div>
-
-            <form onSubmit={submitHandler}>
-              <h1>Sesión</h1>
-              <InputLogin
-                label="Usuario:"
-                placeholder="admin@dominio.com"
-                ref={usernameInputRef}
-                onChange={() => {
-                  setErrorUsername(false);
-                  setErrorMsgUsername(null);
-                }}
-                errors={errorMsgUsername}
-              />
-              <div className={LoginCss["second-input"]}>
-                <InputLogin
-                  type="password"
-                  label="Password:"
-                  placeholder="*****"
-                  ref={passwordInputRef}
-                  onChange={() => {
-                    setErrorPassword(false);
-                    setErrorMsgPassword(null);
-                  }}
-                  errors={errorMsgPassword}
-                />
-              </div>
-              <div className={LoginCss["login-button"]}>
-                <button className={LoginCss.button} >Login</button>
-              </div>
-
-              <p> {userlogginMsg}</p>
-            </form>
-          </div>
         </div>
       </div>
     </>

@@ -7,17 +7,21 @@ import { Provider } from "react-redux";
 import store from "./store/index.jsx";
 import { persistStore } from "redux-persist";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider.jsx";
+
 
 let persistor = persistStore(store);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Provider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
+        </Provider>
+      </BrowserRouter>
+    </AuthProvider>
   </StrictMode>
 );
