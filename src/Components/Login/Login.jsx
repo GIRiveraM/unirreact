@@ -26,9 +26,6 @@ const Login = () => {
   const navigateUrl = () => {
     navigate('/menu');
   };
-
-
-
   return (
     <>
       <PerfilLogo />
