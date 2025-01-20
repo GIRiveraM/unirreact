@@ -12,20 +12,17 @@ const Header = (props) => {
   const navigate = useNavigate();
 
    useEffect(()=>{
-    if (location.state?.redirected) {
-      const IsLogin = !localStorage.getItem("login");
-      setIsReload(IsLogin);
-    }
-    else{
       const IsLogin = localStorage.getItem("login");
-      console.log(IsLogin)
       if (IsLogin){
         setIsReload(IsLogin);
       }
-    }
   }); 
   
   const handleRedirect = () => {
+    //localStorage.setItem("login",true);
+    localStorage.removeItem("login");
+    localStorage.removeItem('persist:mexican-food');
+    setIsReload(false);
     navigate("/", { state: { redirected: true } });
   };
 
@@ -35,7 +32,7 @@ const Header = (props) => {
         <h1 className={HeaderCss.titulo}>La mexicana</h1>
          {isReload && (
           <div className={HeaderCss["logout-button"]}>
-            <button className={HeaderCss.button} onClick={()=>{handleRedirect(); logout}}>Cerrar sesión</button>
+            <button className={HeaderCss.button} onClick={handleRedirect}>Cerrar sesión</button>
           </div>
         ) }
         {isReload && <HeaderCartButton onClick={props.onShowCart} />}

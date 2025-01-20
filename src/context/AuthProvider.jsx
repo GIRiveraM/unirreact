@@ -11,8 +11,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.setItem("login",false);
-    localStorage.removeItem('persist:mexican-food');
     setIsLoggedIn(false); // Cambia el estado global al cerrar sesión
   };
 
