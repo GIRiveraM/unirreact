@@ -7,20 +7,6 @@ import { useAuth } from "../../context/AuthProvider";
 
 const Header = (props) => {
   const { isLoggedIn, logout } = useAuth();
-
-  // Guardar el valor en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("login", value);
-  }, [value]);
-
-  // Leer el valor inicial de localStorage cuando el componente se monte
-  useEffect(() => {
-    const storedValue = localStorage.getItem("login");
-    if (storedValue) {
-      setValue(storedValue); // Recupera el valor
-    }
-  }, []);
-
   return (
     <>
       <header className={HeaderCss.header}>
