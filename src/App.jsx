@@ -27,7 +27,6 @@ function App() {
           <Route path="/menu">
             <Route index element={<TodoPlatillos />}/>
           </Route>
-          <Route path="/*"  to="/menu" />
         </Routes>
       </main>
     </>
