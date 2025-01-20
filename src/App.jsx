@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState  } from "react";
 import "./App.css";
 import Cart from "./Components/Cart/Cart";
 import Header from "./Components/Layout/Header";
@@ -18,23 +18,10 @@ function App() {
     setCartIsShown(false);
   };
 
-  // Leer el valor inicial de localStorage cuando el componente se monte
-  useEffect(() => {
-    const storedValue = localStorage.getItem("myValue");
-    if (storedValue) {
-      setValue(storedValue); // Recupera el valor
-    }
-  }, []);
-
-   // Guardar el valor en localStorage cuando cambie
-   useEffect(() => {
-    localStorage.setItem("myValue", value);
-  }, [value]);
- 
   return (
     <>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler}  isLoggedIn = { value }/>
+      <Header onShowCart={showCartHandler}  />
       <main>
         <Routes>
           <Route index element={<Login />} />
