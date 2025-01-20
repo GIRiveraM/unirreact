@@ -27,6 +27,9 @@ function App() {
           <Route path="/menu">
             <Route index element={<TodoPlatillos />}/>
           </Route>
+          <Route path="/*">
+            <Route index element={<TodoPlatillos />}/>
+          </Route>
         </Routes>
       </main>
     </>
