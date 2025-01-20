@@ -17,6 +17,7 @@ const Login = () => {
     e.preventDefault();
     if (formData.email === "admin@dominio.com" && formData.password === "admin123") {
       login(); // Cambiar el estado global
+      localStorage.setItem("login",true);
       navigateUrl(); // navegamos a la pagina
     } else {
       setError("Credenciales incorrectas");

@@ -5,11 +5,11 @@ import Header from "./Components/Layout/Header";
 import TodoPlatillos from "./Components/Platillos/TodosPlatillos";
 import Login from "./Components/Login/Login";
 import {  Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
-  const [value, setValue] = useState("");
-      
+
   const showCartHandler = () => {
     setCartIsShown(true);
   };
@@ -20,16 +20,18 @@ function App() {
 
   return (
     <>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler}  />
-      <main>
-        <Routes>
-          <Route index element={<Login />} />
-          <Route path="/menu">
-            <Route index element={<TodoPlatillos />}/>
-          </Route>
-        </Routes>
-      </main>
+      <AuthProvider>
+        {cartIsShown && <Cart onClose={hideCartHandler} />}
+        <Header onShowCart={showCartHandler}  />
+        <main>
+          <Routes>
+            <Route index element={<Login />} />
+            <Route path="/menu">
+              <Route index element={<TodoPlatillos />}/>
+            </Route>
+          </Routes>
+        </main>
+      </AuthProvider>
     </>
   );
 }

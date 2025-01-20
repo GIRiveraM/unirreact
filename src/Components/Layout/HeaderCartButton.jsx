@@ -7,9 +7,11 @@ const HeaderCartButton = (props) => {
   const [btnIsHighLigthed, setBtnIsHighLigthed] = useState(false);
   const value = useSelector((state) => state.counter.initialValue);
   const items = useSelector((state) => state.cart.items);
+  
   const btnClases = `${HeaderCartBtnCss.button} ${
     btnIsHighLigthed ? HeaderCartBtnCss.bump : ""
   }`;
+
   useEffect(() => {
     if (items.length === 0) {
       return;

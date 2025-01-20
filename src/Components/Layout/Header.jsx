@@ -6,12 +6,27 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 
 const Header = (props) => {
-  const { isLoggedIn, logout } = useAuth();
-  return (
+  const {  logout  } = useAuth();
+  const [isReload, setIsReload] = useState(false);
+
+  let IsLogin = localStorage.getItem("login");
+  
+  useEffect(() => {
+    // Verificar si la página fue recargada
+    if (performance.navigation.type ===  performance.navigation.TYPE_RELOAD) {
+       setIsReload(IsLogin);
+       console.log('entro reload',IsLogin);
+    } 
+    else{
+      console.log('entro xxx',IsLogin);
+    }
+  }, []);
+
+   return (
     <>
       <header className={HeaderCss.header}>
         <h1 className={HeaderCss.titulo}>La mexicana</h1>
-        {isLoggedIn && (
+         {isReload == true ? (
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -21,8 +36,8 @@ const Header = (props) => {
           >
             Cerrar sesión
           </NavLink>
-        )}
-        {isLoggedIn && <HeaderCartButton onClick={props.onShowCart} />}
+        ):''}
+        {isReload && <HeaderCartButton onClick={props.onShowCart} />}
       </header>
       <div className={HeaderCss["main-image"]}>
         <img src={FoodMexPortada} alt="mexican food logo" />

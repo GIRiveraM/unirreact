@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext  } from "react";
+import localStorage from "redux-persist/es/storage";
 
 const AuthContext = createContext();
 
@@ -10,7 +11,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    localStorage.setItem("login",false);
+    localStorage.removeItem('persist:mexican-food');
     setIsLoggedIn(false); // Cambia el estado global al cerrar sesión
+  };
+
+  const removeFromLocalStorage = (key) => {
+    localStorage.removeItem(key);
   };
 
   return (
