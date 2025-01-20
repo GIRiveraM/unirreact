@@ -19,7 +19,6 @@ const Header = (props) => {
   }); 
   
   const handleRedirect = () => {
-    //localStorage.setItem("login",true);
     localStorage.removeItem("login");
     localStorage.removeItem('persist:mexican-food');
     setIsReload(false);
