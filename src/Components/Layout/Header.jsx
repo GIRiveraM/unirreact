@@ -26,7 +26,7 @@ const Header = (props) => {
     <>
       <header className={HeaderCss.header}>
         <h1 className={HeaderCss.titulo}>La mexicana</h1>
-         {isReload == true ? (
+         {isReload && (
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -36,7 +36,7 @@ const Header = (props) => {
           >
             Cerrar sesión
           </NavLink>
-        ):''}
+        )}
         {isReload && <HeaderCartButton onClick={props.onShowCart} />}
       </header>
       <div className={HeaderCss["main-image"]}>
