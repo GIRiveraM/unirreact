@@ -27,7 +27,7 @@ function App() {
           <Routes>
             <Route index element={<Login />} />
             <Route path="/menu">
-              <Route index element={<TodoPlatillos />}/>
+              <Route index element={<TodoPlatillos /> }/>
             </Route>
           </Routes>
         </main>

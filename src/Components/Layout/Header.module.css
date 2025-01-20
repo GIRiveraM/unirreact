@@ -60,3 +60,26 @@
   font-weight: 600;
   font-style: normal;
 }
+
+.button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #ce1125;
+  color: white;
+  padding: 0.75rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.button:hover,
+.button:active {
+  background-color: #000000;
+}
+
+.logout-button {
+  padding-top: 25px;
+}
